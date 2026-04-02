@@ -1,81 +1,87 @@
 # Tudor Rotarus
 
+Senior backend engineer | Distributed systems
+
 tudor.rotarus@gmail.com | [github.com/TudorRotarus25](https://github.com/TudorRotarus25) | +447824 377 545
 
 ---
 
 ## Summary
 
-London based, T-shaped senior software engineer, passionate about delivering value to customers and about continuously learning and sharing knowledge with others.
-
-I'm currently working as a back-end engineer, but comfortable as a generalist, being able to switch tech stacks quickly. I thrive in highly dynamic, collaborative environments where I can work closely with other engineers and product people.
+Senior software engineer with strong backend and full-stack experience across travel search, B2B APIs, SEO, and commerce platforms. At Skyscanner, I led work on core flights-search services, partner-facing APIs, and large-scale SEO/internal-linking systems serving millions of travellers. Strong in Java, data pipelines, AWS, and cross-functional technical leadership.
 
 ---
 
-## Main technical skills
+## Technical skills
 
-Java, JavaScript, Typescript, React, AWS, gRPC, Kubernetes, Pyspark, Databricks, Airflow
+**Languages:** Java, Python, TypeScript, JavaScript
+
+**Frontend:** React, Vue.js
+
+**Infrastructure:** AWS, Kubernetes, Docker, gRPC
+
+**Data:** PySpark, Databricks, Airflow
 
 ---
 
-## Work Experience
+## Work experience
 
 ### Skyscanner
 
-**Senior Software Engineer**
-*London, UK | Aug 2022 – Present*
+**Senior software engineer**
+London, UK | Aug 2022 – Present
 
-Working as a back-end engineer in the flights search engine team, owning some of the services responsible for the core functionality of Skyscanner and solving problems for millions of travellers.
+Backend engineer in the images and videos content ingestion and distribution platform. I previously worked in the core flights search engine team and the B2B API team, owning core services that power Skyscanner's search for millions of travellers.
 
-- Onboarded a new squad of 7 engineers and led the squad in designing and building of a B2B API for exposing the Skyscanner search functionality to external global strategic partners
-- Led the re-designing of the polling architecture for the flights search engine
-- Led a work-stream to simplify and improve the flights search itineraries construction and filtering
-- Mentoring and tutoring engineers both inside and outside of the team
+- Led the work to design and implement a destination image ranking pipeline, leveraging LLMs and computer vision models to rank destination images by aesthetics quality and relevance
+- Onboarded and ramped a new 7-engineer squad, then led design and delivery of a partner-facing B2B API exposing Skyscanner search capabilities to strategic global partners
+- Led a redesign of flights-search polling architecture in a core search path, improving scalability, reliability, and maintainability
+- Led a workstream to simplify itinerary construction and filtering in the flights search engine, reducing complexity in a core part of the platform
+- Mentored engineers inside and outside the team
 
-**Software Engineer II**
-*London, UK | Feb 2020 – Aug 2022*
+**Software engineer II**
+London, UK | Feb 2020 – Aug 2022
 
-Worked as a full-stack engineer in the SEO space, which is the biggest traffic source for getting travellers in Skyscanner's funnel, and then in the B2B space.
+Full-stack engineer in the SEO space — Skyscanner's biggest traffic source — and then in the B2B space.
 
-- Led the creation of an internal linking solution for hotels landing pages, which involved generating and optimising millions of links at scale
-- Led the re-building of a legacy search widgets service using the strangler pattern, using modern front-end technologies and techniques
+- Led creation of an internal linking solution for hotels landing pages, generating and optimising millions of links at scale
+- Led the rebuild of a legacy search widgets service using the strangler pattern with modern frontend technologies
 
 ### MatchesFashion
 
-**Full-Stack Developer**
-*London, UK | Dec 2018 – Feb 2020*
+**Full-stack developer**
+London, UK | Dec 2018 – Feb 2020
 
-- Worked with React and Node on micro-services in order to support the company's internal logistics and operations efficiency management
-- Led the design and implementation of an offline-first desktop app using Electron
-- The technologies used included GraphQL, MongoDB, Docker, Kubernetes and AWS
+- Built React and Node microservices supporting internal logistics and operations efficiency
+- Led design and implementation of an offline-first desktop app using Electron
+- Technologies included GraphQL, MongoDB, Docker, Kubernetes, and AWS
 
 ### Qumu
 
-**Front-End Developer**
-*London, UK | Aug 2018 – Dec 2018*
+**Frontend developer**
+London, UK | Aug 2018 – Dec 2018
 
-- Worked on improving and maintaining a brand new video player using Vue.js
-- Made UI/UX improvements to the platform and built new features
+- Improved and maintained a video player built with Vue.js
+- Delivered UI/UX improvements and new platform features
 
 ### SportPursuit
 
-**Full-Stack Developer**
-*London, UK | Sep 2016 – Aug 2018*
+**Full-stack developer**
+London, UK | Sep 2016 – Aug 2018
 
-- Prototyped and migrated the Front-End of the website from Magento to Vue.js
+- Prototyped and migrated the frontend from Magento to Vue.js
 - Coordinated with a remote team based in East Russia
-- Extended the site theme and the API capabilities to build an eCommerce platform for Eurosport
+- Extended the site theme and API to build an eCommerce platform for Eurosport
 
 ---
 
 ## Education
 
 ### University of Bucharest
-*Bachelor's degree, Computer Science*
-*2013 – 2016*
+Bachelor's degree, computer science | 2013 – 2016
 
 ---
 
-## Spoken languages
+## Languages
 
-**English** - Full Professional | **Romanian** - Native | **Portuguese** - Conversational
+**English** - Full professional | **Romanian** - Native | **Portuguese** - Conversational
