@@ -1,0 +1,267 @@
+/* === CV Page Layout === */
+.cv-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem 4rem;
+}
+
+/* === Toolbar === */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: 210mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #161622;
+  border-bottom: 1px solid #2a2a3a;
+  border-radius: 8px 8px 0 0;
+  margin-top: 2rem;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toolbar-file {
+  color: #a5b4fc;
+  font-size: 0.875rem;
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.toolbar-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.toolbar-badge-ok {
+  background: #16a34a;
+  color: #fff;
+}
+
+.toolbar-badge-over {
+  background: #ef4444;
+  color: #fff;
+}
+
+.toolbar-export {
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+  background: #7ba4d4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.toolbar-export:hover {
+  background: #6891be;
+}
+
+/* === Paper === */
+.cv-paper {
+  position: relative;
+  width: 100%;
+  max-width: 210mm;
+  background: #fff;
+  color: #1a1a1a;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 4px 4px;
+}
+
+.cv-content {
+  padding: 15mm;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+}
+
+/* === Page Break Indicators === */
+.page-break-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 2px dashed #ef4444;
+  pointer-events: none;
+}
+
+.page-break-label {
+  position: absolute;
+  right: 8px;
+  top: -10px;
+  background: #fee2e2;
+  color: #dc2626;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* === CV Typography === */
+.cv-content h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: #111;
+}
+
+.cv-content h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #7ba4d4;
+  margin: 1.25rem 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid #7ba4d4;
+}
+
+.cv-content h2 {
+  break-after: avoid;
+}
+
+.cv-content h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111;
+  margin: 0.75rem 0 0.1rem;
+  break-after: avoid;
+}
+
+.cv-content h3 + p,
+.cv-content h3 + p + ul {
+  break-before: avoid;
+}
+
+.cv-content p {
+  margin: 0.25rem 0;
+  color: #333;
+}
+
+.cv-content em {
+  color: #555;
+  font-size: 0.85rem;
+}
+
+.cv-content strong {
+  color: #111;
+}
+
+.cv-content a {
+  color: #7ba4d4;
+  text-decoration: none;
+}
+
+.cv-content a:hover {
+  text-decoration: underline;
+}
+
+.cv-content ul {
+  margin: 0.25rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.cv-content li {
+  margin: 0.15rem 0;
+  color: #333;
+  display: list-item;
+}
+
+/* === Company Timeline === */
+.cv-content .company-group {
+  border-left: 2px solid #d1d5db;
+  margin-left: 5px;
+  padding-left: 16px;
+  position: relative;
+}
+
+/* Dot on each position title (strong inside a p that's a direct child of company-group) */
+.cv-content .company-group > p > strong:first-child {
+  position: relative;
+}
+
+.cv-content .company-group > p > strong:first-child::before {
+  content: "";
+  position: absolute;
+  left: -23px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #7ba4d4;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #d1d5db;
+}
+
+.cv-content hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 0.75rem 0;
+}
+
+/* === Print Styles === */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  body {
+    background: none !important;
+  }
+
+  .cv-page {
+    background: none;
+    padding: 0;
+    min-height: auto;
+  }
+
+  .toolbar {
+    display: none !important;
+  }
+
+  .cv-paper {
+    box-shadow: none;
+    border-radius: 0;
+    max-width: none;
+  }
+
+  .cv-content {
+    padding: 0;
+  }
+
+  .page-break-indicator {
+    display: none !important;
+  }
+
+  .cv-content h2 {
+    color: #7ba4d4;
+    border-bottom-color: #7ba4d4;
+  }
+
+  .cv-content a {
+    color: #7ba4d4;
+  }
+}
