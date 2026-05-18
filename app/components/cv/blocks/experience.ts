@@ -30,30 +30,48 @@ export function buildExperienceSection(
   const list = document.createElement("div");
   list.className = "experience-list";
 
-  // Group by h3 boundaries.
-  const groups: { header: HTMLElement; body: HTMLElement[] }[] = [];
-  let current: { header: HTMLElement; body: HTMLElement[] } | null = null;
+  // Group by h3 boundaries. A top-level <br/> in the source flags the next
+  // company with `pageBreak`, used as a "fits well on the next page" hint.
+  type Group = {
+    header: HTMLElement;
+    body: HTMLElement[];
+    pageBreak: boolean;
+  };
+  const groups: Group[] = [];
+  let current: Group | null = null;
+  let pendingBreak = false;
 
   for (const el of content) {
+    if (el.tagName === "BR") {
+      pendingBreak = true;
+      continue;
+    }
     if (el.tagName === "H3") {
-      current = { header: el, body: [] };
+      current = { header: el, body: [], pageBreak: pendingBreak };
       groups.push(current);
+      pendingBreak = false;
     } else if (current) {
       current.body.push(el);
     }
   }
 
   for (const group of groups) {
-    list.appendChild(buildCompany(group.header, group.body));
+    list.appendChild(buildCompany(group.header, group.body, group.pageBreak));
   }
 
   section.appendChild(list);
   return section;
 }
 
-function buildCompany(h3: HTMLElement, body: HTMLElement[]): HTMLElement {
+function buildCompany(
+  h3: HTMLElement,
+  body: HTMLElement[],
+  pageBreak: boolean
+): HTMLElement {
   const article = document.createElement("article");
-  article.className = "experience-company";
+  article.className = pageBreak
+    ? "experience-company has-page-break"
+    : "experience-company";
 
   const { name, tenure } = splitCompanyHeading(h3.textContent ?? "");
   article.setAttribute(

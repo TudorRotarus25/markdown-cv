@@ -18,7 +18,7 @@ export function collectSections(elements: HTMLElement[]): {
 
   for (const el of elements) {
     const tag = el.tagName;
-    if (tag === "HR" || tag === "BR") continue;
+    if (tag === "HR") continue;
 
     if (tag === "H2") {
       current = { title: el.textContent?.trim() ?? "", content: [] };

@@ -8,17 +8,13 @@ tudor.rotarus@gmail.com | +447824 377 545
 
 ## Summary
 
-Senior software engineer with strong backend and full-stack experience over more than 10 years across travel search, B2B APIs, SEO, and commerce platforms. At Skyscanner, I led work on high scale, core flights-search services, partner-facing APIs, and large-scale SEO/internal-linking systems serving millions of travellers. Strong in Java, data pipelines, AWS, and cross-functional technical leadership.
+Senior software engineer with strong backend and full-stack experience over more than 10 years across travel search, B2B APIs, SEO, and commerce platforms. At Skyscanner, I led work on high scale, core flights-search services and partner-facing APIs, serving millions of travellers. 
 
 ---
 
 ## Technical skills
 
-**Languages:** Java, Python
-
-**Infrastructure:** AWS, Kubernetes, Docker, gRPC
-
-**Data:** PySpark, Databricks, Airflow
+Java, Python, AWS, Kubernetes, Docker, gRPC, PySpark, Databricks, Airflow
 
 ---
 
@@ -31,7 +27,7 @@ London, UK | Aug 2022 – Present
 
 Backend engineer in the images and videos content ingestion, ranking and distribution platform. I previously worked in the core flights search engine team and the B2B API team, owning core high-scale services that power Skyscanner's search for millions of travellers.
 
-- Led the work to add baggage price information for low-cost carriers to Skyscanner's search results. This involved a significant re-design of the search platform's booking panel flow and coordinating stakeholders across multiple teams on both the Front-End and upstream data providers teams.
+- Led the work to add baggage price information for low-cost carriers to Skyscanner's search results. This involved a significant re-design of the search platform's booking panel flow and coordinating stakeholders across multiple teams upstream and downstream.
 - Led a cross-team, cross-functional project to design and implement a destination image ranking pipeline, leveraging LLMs and computer vision models to rank destination images by aesthetics quality and relevance to the search intent.
 - Acted as a temporary squad lead for 6 months, during the maternity leave of the regular squad lead, coordinating the work of a squad of 6 engineers and delivering on 2 dependable and successful quarters.
 - Onboarded and ramped a new 7-engineer squad, then led design and delivery of a partner-facing B2B API exposing Skyscanner search capabilities to strategic global partners.
@@ -44,8 +40,6 @@ Full-stack engineer in the SEO space — Skyscanner's biggest traffic source —
 
 - Led creation of an internal linking solution for hotels landing pages, generating and optimising millions of links at scale
 - Led the rebuild of a legacy search widgets service using the strangler pattern with modern frontend technologies
-
-<br/>
 
 ### MatchesFashion (2 years)
 

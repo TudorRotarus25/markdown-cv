@@ -118,7 +118,7 @@
 }
 
 .cv-content {
-  padding: 18mm 16mm;
+  padding: 10mm 16mm 16mm;
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   font-size: 10.5pt;
   line-height: 1.55;
@@ -162,8 +162,6 @@
   grid-template-columns: 1fr auto;
   gap: 32px;
   align-items: end;
-  padding-bottom: 14pt;
-  border-bottom: 1px solid var(--cv-rule);
   margin-bottom: 22pt;
 }
 
@@ -284,29 +282,13 @@
 }
 
 /* === Skills === */
-.skills-grid {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 10pt 24px;
-  align-items: baseline;
-  margin: 0;
-}
-
-.skill-label {
-  font-family: var(--font-geist-sans), ui-sans-serif, sans-serif;
-  font-weight: 500;
-  font-size: 8pt;
-  color: var(--cv-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0;
-}
-
-.skill-tags {
+.skill-list {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .skill-tag {
@@ -339,6 +321,10 @@
   flex-direction: column;
   gap: 10pt;
   break-inside: avoid;
+}
+
+.experience-company.has-page-break {
+  margin-top: 14pt;
 }
 
 .exp-company-banner {
@@ -552,16 +538,6 @@
   .cv-contact {
     text-align: left;
   }
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 4pt 0;
-  }
-  .skills-grid .skill-label {
-    margin-top: 8pt;
-  }
-  .skills-grid .skill-label:first-child {
-    margin-top: 0;
-  }
   .exp-role {
     grid-template-columns: 1fr;
     gap: 6pt;
@@ -585,7 +561,7 @@
 @media print {
   @page {
     size: A4;
-    margin: 15mm;
+    margin: 10mm 15mm 15mm;
   }
 
   body {
@@ -621,6 +597,11 @@
   .experience-company,
   .exp-role {
     break-inside: avoid;
+  }
+
+  .experience-company.has-page-break {
+    break-before: page;
+    margin-top: 0;
   }
 
   .cv-content :focus-visible {

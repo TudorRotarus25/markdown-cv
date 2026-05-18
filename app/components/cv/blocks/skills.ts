@@ -1,61 +1,56 @@
 import { buildSectionShell } from "./shell";
 
 /**
- * Transform skill paragraphs into a definition list with chips.
+ * Flatten every skill paragraph into a single list of chips.
  *
- * Input:  <p><strong>Languages:</strong> Java, Python</p>
- * Output: <dl class="skills-grid">
- *           <dt class="skill-label">Languages</dt>
- *           <dd class="skill-tags">
- *             <span class="skill-tag">Java</span>
- *             <span class="skill-tag">Python</span>
- *           </dd>
- *         </dl>
+ * Input  (one or more paragraphs):
+ *   <p><strong>Languages:</strong> Java, Python</p>
+ *   <p><strong>Infrastructure:</strong> AWS, Kubernetes, Docker, gRPC</p>
+ *
+ * Output:
+ *   <ul class="skill-list">
+ *     <li class="skill-tag">Java</li>
+ *     <li class="skill-tag">Python</li>
+ *     <li class="skill-tag">AWS</li>
+ *     …
+ *   </ul>
+ *
+ * Category labels in the source (Languages, Infrastructure, …) are discarded;
+ * they remain useful for organising cv.md but the rendered design is flat.
  */
 export function buildSkillsSection(
   title: string,
   content: HTMLElement[]
 ): HTMLElement {
   const section = buildSectionShell(title);
-  const dl = document.createElement("dl");
-  dl.className = "skills-grid";
+  const list = document.createElement("ul");
+  list.className = "skill-list";
 
   for (const p of content) {
     if (p.tagName !== "P") continue;
-    const strong = p.querySelector(":scope > strong");
-    if (!strong) continue;
-
-    const labelText = (strong.textContent ?? "").replace(/:$/, "").trim();
-    const restText = collectTextAfter(p, strong as HTMLElement).trim();
-    const items = restText
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean);
-
-    if (!labelText || items.length === 0) continue;
-
-    const dt = document.createElement("dt");
-    dt.className = "skill-label";
-    dt.textContent = labelText;
-
-    const dd = document.createElement("dd");
-    dd.className = "skill-tags";
+    const items = collectChips(p);
     for (const item of items) {
-      const tag = document.createElement("span");
+      const tag = document.createElement("li");
       tag.className = "skill-tag";
       tag.textContent = item;
-      dd.appendChild(tag);
+      list.appendChild(tag);
     }
-
-    dl.appendChild(dt);
-    dl.appendChild(dd);
   }
 
-  section.appendChild(dl);
+  section.appendChild(list);
   return section;
 }
 
-function collectTextAfter(parent: HTMLElement, marker: HTMLElement): string {
+function collectChips(p: HTMLElement): string[] {
+  const strong = p.querySelector(":scope > strong");
+  const restText = strong ? textAfter(p, strong as HTMLElement) : (p.textContent ?? "");
+  return restText
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+function textAfter(parent: HTMLElement, marker: HTMLElement): string {
   let found = false;
   let text = "";
   for (const node of Array.from(parent.childNodes)) {

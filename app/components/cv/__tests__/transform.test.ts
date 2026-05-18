@@ -49,21 +49,28 @@ describe("transformCv against the real cv.md", () => {
     expect(summary!.textContent).toMatch(/Senior software engineer/);
   });
 
-  it("transforms Technical skills into <dl> with chips", () => {
-    const dl = rendered.querySelector("dl.skills-grid");
-    expect(dl).not.toBeNull();
-    const labels = Array.from(dl!.querySelectorAll("dt.skill-label")).map(
+  it("flattens Technical skills into a single chip list (no category labels)", () => {
+    const list = rendered.querySelector("ul.skill-list");
+    expect(list).not.toBeNull();
+
+    // Category labels from the source must NOT render as chips or headings.
+    expect(rendered.querySelector(".skill-label")).toBeNull();
+    expect(rendered.querySelector("dl.skills-grid")).toBeNull();
+
+    const tags = Array.from(list!.querySelectorAll("li.skill-tag")).map(
       (el) => el.textContent
     );
-    expect(labels).toContain("Languages");
-    expect(labels).toContain("Infrastructure");
-    expect(labels).toContain("Data");
-
-    const tags = Array.from(dl!.querySelectorAll("dd.skill-tags .skill-tag"))
-      .map((el) => el.textContent);
-    expect(tags).toContain("Java");
-    expect(tags).toContain("Kubernetes");
-    expect(tags).toContain("Airflow");
+    expect(tags).toEqual([
+      "Java",
+      "Python",
+      "AWS",
+      "Kubernetes",
+      "Docker",
+      "gRPC",
+      "PySpark",
+      "Databricks",
+      "Airflow",
+    ]);
   });
 
   it("transforms each company into an <article> with banner and roles", () => {
@@ -140,5 +147,13 @@ describe("transformCv against the real cv.md", () => {
 
   it("contains no italic styling-prone <em> elements in the rendered output", () => {
     expect(rendered.querySelectorAll("em").length).toBe(0);
+  });
+
+  it("flags the company preceded by a <br/> in cv.md with .has-page-break", () => {
+    const articles = rendered.querySelectorAll("article.experience-company");
+    const flagged = Array.from(articles)
+      .filter((a) => a.classList.contains("has-page-break"))
+      .map((a) => a.querySelector(".exp-company-name")?.textContent);
+    expect(flagged).toEqual(["MatchesFashion"]);
   });
 });
