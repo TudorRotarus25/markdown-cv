@@ -45,3 +45,5 @@ next-env.d.ts
 
 # IDEA
 .idea/
+
+/.claude/settings.local.json
